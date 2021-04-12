@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Functions Assignment</title>
+
+    <!-- styling links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="jQuery.css">
+
+    <!-- jQuery script tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        // addClass 
+        $(document).ready(function () {
+            $(".add_class").hide();
+            $(".toggle_h2").hide();
+            $(".addclass_btn").click(function () {
+                var after_added = $("<h2>and <span>AFTER</span> was added after toggle</h2>")
+                $(".add_class_og_par").hide();
+                {
+                    $(".add_class").fadeIn("slow");
+                    $('.add_class').addClass("red");
+                }
+                $('.addclass_h1').html("<em>AddClass</em>");
+                {
+                    $(".addclass_h1").css("color", "red");
+                }
+                $(".remove_h2").hide();
+                $(".toggle_h2").toggle("slow", function () {
+                    $(".toggle_h2").after(after_added,);
+                    {
+                        $(after_added).css("color", "black");
+                        $(after_added).css("margin-left", "57rem");
+                        $(after_added).css("margin-top", "1rem");
+                        $(after_added).css("font-size", "250%");
+                        $(after_added).css("font-weight", "500");
+                    }
+                });
+            });
+        });
+
+        // slidtoggle
+        $(document).ready(function () {
+            var hiddenImg = $("#egypt");
+            $("#egypt").hide();
+            $(".slidetoggle_btn").click(function () {
+                var x = $(this).text();
+                if (x == "Slidetoggle") {
+                    $(this).text("Click to hide!");
+                    hiddenImg.slideToggle(100);
+                    $(".slide_toggle").hide();
+                }
+                if (x == "Click to hide!") {
+                    $(".slidetoggle_btn").click(function () {
+                        $(this).text("Slidetoggle");
+                        hiddenImg.slideUp(100);
+                        $('.slide_toggle').show();
+                        $("#egypt").hide();
+                    });
+                }
+            });
+        });
+
+        // append
+        $(document).ready(function () {
+            var hiddenPar = $(".old_par");
+            var before_manipulation = $("<h4>Good job with adding BEFORE!</h4>");
+            var h = $(this).text();
+            var attr_title = $("em").attr("attr_Title");
+            $(".slidedown_append_small").hide();
+            $(".displayval").hide();
+            $(".attr_group").hide();
+            $(".append_btn").click(function () {
+                $(".old_par").hide();
+                $(".append_h1").fadeOut("fast");
+                $(".slidedown_append_small").slideDown("slow");
+                $(".jquery3").append("<p>You are now reading a new added paragraph.</p>");
+                $(".jquery3").before(before_manipulation);
+                {
+                    $(before_manipulation).css("text-align", "center");
+                }
+                $(".displayval").show();
+                $("a").hover(function () {
+                    var text = $(this).text();
+                    $("input").val(text);
+                });
+                $(".attr_group").show();
+                $(".attr_fill").text(attr_title);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row first_row">
+            <div class="col-md-12 addclass">
+                <h1 class="addclass_h1">AddClass</h1>
+                <small>.addclass, .fadeIn, .toggle, .after .html, & .click</small>
+                <h2 class="remove_h2">Lets TOGGLE to the bottom!</h2>
+                <div class="jquery1">
+                    <button class="addclass_btn btn btn-primary">AddClass</button>
+                    <p class="add_class_og_par">Click the button to add class 'red' to this paragraph</p>
+                    <p class="add_class">Class RED was added to this paragraph</p>
+                </div>
+                <h2 class="toggle_h2"><span>TOGGLE</span> was added</h2>
+                <div class="border"></div>
+            </div>
+            <!-- addclass -->
+
+            <div class="col-md-12 slidetoggle">
+                <h1>Slidetoggle</h1>
+                <small class="slide_toggle_small">.slidetoggle, .text, .hide, .show, .slideUp & .click</small>
+                <div class="jquery2">
+                    <button class="slidetoggle_btn btn btn-secondary">Slidetoggle</button>
+                    <p class="slide_toggle">Click the button to slidetoggle a hidden image</p>
+                    <img id="egypt" src="imgs/EgyptInApril.jfif" alt="Egypt In April">
+                </div>
+                <div class="border"></div>
+            </div>
+            <!-- slidetoggle -->
+
+            <div class="col-md-12 append">
+                <h1 class="append_h1">Append</h1>
+                <small class="slidedown_append_small">.append, .slideDown, .fadeOut, before, .attr, .val &
+                    .click</small>
+                <div class="jquery3">
+                    <button class="append_btn btn btn-success">Append</button>
+                    <p class="old_par">Click the button to append a new paragraph!</p>
+                </div>
+
+                <div class="displayval">
+                    <input type="text" value="start hovering">
+                    <a href="" class="btn btn-outline-danger">Hover</a>
+                    <a href="" class="btn btn-outline-warning">For</a>
+                    <a href="" class="btn btn-outline-dark">Val()</a>
+                </div>
+
+                <div class="attr_group">
+                    <h5>Check out my .attr() - I am becoming an <em attr_Title="magnificent">Awesome</em> coder...</h5>
+                    <h5>The title of the emphasis is:</h5>
+                    <p class="attr_fill"></p>
+                </div>
+                <div class="border"></div>
+            </div>
+            <!-- append -->
+        </div>
+        <!-- first_row -->
+
+
+
+
+
+
+    </div>
+    <!-- container-fluid ends -->
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
